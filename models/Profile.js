@@ -4,6 +4,7 @@ const ProfileSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
+    ref: "user",
   },
   company: {
     type: String,
@@ -47,7 +48,6 @@ const ProfileSchema = new mongoose.Schema({
       },
       to: {
         type: String,
-        required: true,
       },
       current: {
         type: Boolean,
