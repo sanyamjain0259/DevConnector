@@ -9,7 +9,7 @@ export const loadUser = () => async (dispatch) => {
     setAuthToken(localStorage.token);
   }
   try {
-    const res = await axios.get("api/auth");
+    const res = await axios.get("/api/auth");
     dispatch({
       type: actions.USER_LOADED,
       payload: res.data,
@@ -78,4 +78,9 @@ export const login = (email, password) => async (dispatch) => {
       type: actions.LOGIN_FAIL,
     });
   }
+};
+
+export const logout = () => (dispatch) => {
+  dispatch({ type: actions.CLEAR_PROFILE });
+  dispatch({ type: actions.LOG_OUT });
 };
